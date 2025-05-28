@@ -4,16 +4,27 @@ import { movies } from './data'
 import { ssrDynamicImportKey } from 'vite/module-runner'
 const Movies = () => {
     const [movieList, setmovieList] = useState(movies)
-    return (
-        <>
+    const FilterByCategory = (category) => {
+        setmovieList(movies.filter((movie) => {
+            if (category === "") {
+                return true; // Show all movies
+            } else {
+                return movie.category.toLowerCase() === category.toLowerCase();
+            }
+        }))
+    }
+}
+return (
+    <>
+        <div className="container-fluid bg-dark text-white p-4">
             <div className="my-3 bg-dark d-flex justify-content-center align-items-center flex-wrap gap-2">
-                <button type="button" className="btn btn-outline-primary">All</button>
-                <button type="button" className="btn btn-outline-secondary">Action</button>
-                <button type="button" className="btn btn-outline-success">Thriller</button>
-                <button type="button" className="btn btn-outline-danger">Animation</button>
-                <button type="button" className="btn btn-outline-warning">Horror</button>
-                <button type="button" className="btn btn-outline-info">Sci Fi</button>
-                <button type="button" className="btn btn-outline-light">Drama</button>
+                <button onClick={() => FilterByCategory("All")} type="button" className="btn btn-outline-primary">All</button>
+                <button onClick={() => FilterByCategory("Action")} type="button" className="btn btn-outline-secondary">Action</button>
+                <button onClick={() => FilterByCategory("Thriller")} type="button" className="btn btn-outline-success">Thriller</button>
+                <button onClick={() => FilterByCategory("Animation")} type="button" className="btn btn-outline-danger">Animation</button>
+                <button onClick={() => FilterByCategory("Horror")} type="button" className="btn btn-outline-warning">Horror</button>
+                <button onClick={() => FilterByCategory("Sci")} type="button" className="btn btn-outline-info">Sci Fi</button>
+                <button onClick={() => FilterByCategory("Drama")} type="button" className="btn btn-outline-light">Drama</button>
             </div>
 
             <div style={{
@@ -84,8 +95,9 @@ const Movies = () => {
                     </div>
                 ))}
             </div>
-        </>
-    )
+        </div>
+    </>
+)
 }
 
 export default Movies
