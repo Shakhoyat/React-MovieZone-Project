@@ -4,69 +4,28 @@ import { movies } from './data'
 const Movies = () => {
     const [movieList, setmovieList] = useState(movies)
     return (
-        <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '32px',
-            padding: '32px',
-            background: '#f5f7fa',
-            minHeight: '100vh',
-            justifyContent: 'center'
-        }}>
+        <div className="flex flex-wrap gap-8 p-8 min-h-screen justify-center bg-[#f5f7fa] dark:bg-gray-900 transition-colors">
             {movieList.map((movie) => (
                 <div
                     key={movie.id}
-                    style={{
-                        width: '240px',
-                        background: '#fff',
-                        border: 'none',
-                        borderRadius: '16px',
-                        boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
-                        overflow: 'hidden',
-                        transition: 'transform 0.2s',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center'
-                    }}
-                    onMouseOver={e => e.currentTarget.style.transform = 'scale(1.04)'}
-                    onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+                    className="w-60 bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center cursor-pointer transition-transform duration-200 hover:scale-105"
                 >
                     <img
                         src={movie.poster_path}
                         alt={movie.title}
-                        style={{
-                            width: '100%',
-                            height: '340px',
-                            objectFit: 'cover',
-                            borderTopLeftRadius: '16px',
-                            borderTopRightRadius: '16px'
-                        }}
+                        className="w-full h-[340px] object-cover rounded-t-2xl"
                     />
-                    <div style={{ padding: '18px 16px 12px 16px', width: '100%' }}>
-                        <h3 style={{
-                            margin: '0 0 8px 0',
-                            fontSize: '1.15rem',
-                            color: '#222',
-                            fontWeight: 600,
-                            textAlign: 'center'
-                        }}>{movie.title}</h3>
-                        <div style={{ fontSize: '0.97rem', color: '#555', marginBottom: '6px', textAlign: 'center' }}>
-                            <span style={{ fontWeight: 500 }}>Release:</span> {movie.release_date}
+                    <div className="p-4 w-full">
+                        <h3 className="mb-2 text-lg font-semibold text-center text-gray-900 dark:text-gray-100">{movie.title}</h3>
+                        <div className="text-base text-gray-600 dark:text-gray-300 mb-1 text-center">
+                            <span className="font-medium">Release:</span> {movie.release_date}
                         </div>
-                        <div style={{ fontSize: '0.97rem', color: '#555', marginBottom: '6px', textAlign: 'center' }}>
-                            <span style={{ fontWeight: 500 }}>Category:</span> {movie.category}
+                        <div className="text-base text-gray-600 dark:text-gray-300 mb-1 text-center">
+                            <span className="font-medium">Category:</span> {movie.category}
                         </div>
-                        <div style={{ fontSize: '0.97rem', color: '#555', textAlign: 'center' }}>
-                            <span style={{ fontWeight: 500 }}>IMDB:</span>
-                            <span style={{
-                                marginLeft: '6px',
-                                color: '#f5b50a',
-                                fontWeight: 700,
-                                background: '#fff',
-                                padding: '2px 6px',
-                                borderRadius: '6px'
-                            }}>★ {movie.imdb_rating}</span>
+                        <div className="text-base text-gray-600 dark:text-gray-300 text-center">
+                            <span className="font-medium">IMDB:</span>
+                            <span className="ml-2 text-yellow-500 font-bold bg-white dark:bg-gray-700 px-2 py-0.5 rounded-md">★ {movie.imdb_rating}</span>
                         </div>
                     </div>
                 </div>
