@@ -7,14 +7,13 @@ const Movies = () => {
     return (
         <>
             <div className="my-3 bg-dark d-flex justify-content-center align-items-center flex-wrap gap-2">
-                <button type="button" className="btn btn-outline-primary">Primary</button>
-                <button type="button" className="btn btn-outline-secondary">Secondary</button>
-                <button type="button" className="btn btn-outline-success">Success</button>
-                <button type="button" className="btn btn-outline-danger">Danger</button>
-                <button type="button" className="btn btn-outline-warning">Warning</button>
-                <button type="button" className="btn btn-outline-info">Info</button>
-                <button type="button" className="btn btn-outline-light">Light</button>
-                <button type="button" className="btn btn-outline-dark">Dark</button>
+                <button type="button" className="btn btn-outline-primary">All</button>
+                <button type="button" className="btn btn-outline-secondary">Action</button>
+                <button type="button" className="btn btn-outline-success">Thriller</button>
+                <button type="button" className="btn btn-outline-danger">Animation</button>
+                <button type="button" className="btn btn-outline-warning">Horror</button>
+                <button type="button" className="btn btn-outline-info">Sci Fi</button>
+                <button type="button" className="btn btn-outline-light">Drama</button>
             </div>
 
             <div style={{
